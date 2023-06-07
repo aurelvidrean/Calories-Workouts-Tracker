@@ -1,0 +1,26 @@
+.glowing-link {
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .glowing-link:hover {
+    color: #ffc107; /* Change the color as desired */
+    text-shadow: 0 0 10px #ffc107; /* Adjust the shadow as desired */
+  }
+  
+  .glowing-link:active {
+    color: #9fff22; /* Change the color as desired */
+    text-shadow: 0 0 15px #ff5722; /* Adjust the shadow as desired */
+  }
+  
+.background {
+    background-image: url('../assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+    width: 100vw;
+    height: 100vh;
+}
+
+.navbar {
+    height: 60px !important;
+}

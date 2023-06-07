@@ -1,0 +1,26 @@
+
+<div class="center-container">
+<div class="container">
+    <h2>Register</h2>
+    <form class="register-form" (submit)="addUser()">
+        <div class="form-field">
+            <label for="name" style="color: #ebe6c3;">Name</label>
+            <input type="text" id="name" name="name" [(ngModel)]="user.name" required>
+          </div>
+          <div class="form-field">
+            <label for="password" style="color: #ebe6c3;">Password</label>
+            <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
+          </div>
+          <div class="form-field">
+            <label for="age" style="color: #ebe6c3;">Age</label>
+            <input type="number" id="age" name="age" [(ngModel)]="user.age" required>
+          </div>
+          <div class="form-field">
+            <label for="kilograms"style="color: #ebe6c3;">Kilograms</label>
+            <input type="number" id="kilograms" name="kilograms" [(ngModel)]="user.kilograms" required>
+          </div>
+          <button type="submit">Register</button>
+      </form>
+  </div>
+</div>
+  

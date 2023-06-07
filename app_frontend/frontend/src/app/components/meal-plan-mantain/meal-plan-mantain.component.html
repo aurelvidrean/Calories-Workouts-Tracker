@@ -1,0 +1,146 @@
+<div class="container">
+  <div class="left-side">
+    <h3>Select your meals:</h3>
+    <div class="meal-dropdowns">
+      <div class="dropdown">
+        <label for="BREAKFAST">Breakfast:</label>
+        <select id="BREAKFAST" [(ngModel)]="selectedBreakfast">
+          <option *ngFor="let food of foods" [value]="food.name">{{ food.name }}</option>
+        </select>
+        <p>Breakfast Calories: {{ breakfastTotalCalories }}</p>
+        <button type="button" class="btn btn-success" (click)="addFoodToMeal('breakfast')"
+          (click)="calculateTotalCalories()">Add</button>
+        <div class="st_viewport">
+          <div class="st_wrap_table" data-table_id="0">
+            <header class="st_table_header">
+              <h2>Breakfast breakdown</h2>
+              <div class="st_row">
+                <div class="st_column _rank">Rank</div>
+                <div class="st_column _name">Name</div>
+                <div class="st_column _calories">Calories</div>
+                <div class="st_column _Image">Image</div>
+              </div>
+            </header>
+            <div class="st_table">
+              <tr *ngFor="let temp of foodSelectedForBreakfast; let i = index">
+                <div class="st_row">
+                  <div class="st_column _rank">{{i + 1}}</div>
+                  <div class="st_column _name">{{temp.name}}</div>
+                  <div class="st_column _calories">{{temp.calories}}</div>
+                  <div class="st_column _Image"><img [src]="temp.imageUrl" alt="Food Image"
+                      style="width: 150px; height: 100px;"></div>
+                </div>
+              </tr>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <label for="LUNCH">Lunch:</label>
+        <select id="LUNCH" [(ngModel)]="selectedLunch">
+          <option *ngFor="let food of foods" [value]="food.name">{{ food.name }}</option>
+        </select>
+        <p>Lunch Calories: {{ lunchTotalCalories }}</p>
+        <button type="button" class="btn btn-success" (click)="addFoodToMeal('lunch')"
+          (click)="calculateTotalCalories()">Add</button>
+          <div class="st_viewport">
+            <div class="st_wrap_table" data-table_id="0">
+              <header class="st_table_header">
+                <h2>Lunch breakdown</h2>
+                <div class="st_row">
+                  <div class="st_column _rank">Rank</div>
+                  <div class="st_column _name">Name</div>
+                  <div class="st_column _calories">Calories</div>
+                  <div class="st_column _Image">Image</div>
+                </div>
+              </header>
+              <div class="st_table">
+                <tr *ngFor="let temp of foodSelectedForLunch; let i = index">
+                  <div class="st_row">
+                    <div class="st_column _rank">{{i + 1}}</div>
+                    <div class="st_column _name">{{temp.name}}</div>
+                    <div class="st_column _calories">{{temp.calories}}</div>
+                    <div class="st_column _Image"><img [src]="temp.imageUrl" alt="Food Image"
+                        style="width: 150px; height: 100px;"></div>
+                  </div>
+                </tr>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="dropdown">
+        <label for="DINNER">Dinner:</label>
+        <select id="DINNER" [(ngModel)]="selectedDinner">
+          <option *ngFor="let food of foods" [value]="food.name">{{ food.name }}</option>
+        </select>
+        <p>Dinner Calories: {{ dinnerTotalCalories }}</p>
+        <button type="button" class="btn btn-success" (click)="addFoodToMeal('dinner')"
+          (click)="calculateTotalCalories()">Add</button>
+          <div class="st_viewport">
+            <div class="st_wrap_table" data-table_id="0">
+              <header class="st_table_header">
+                <h2>Dinner breakdown</h2>
+                <div class="st_row">
+                  <div class="st_column _rank">Rank</div>
+                  <div class="st_column _name">Name</div>
+                  <div class="st_column _calories">Calories</div>
+                  <div class="st_column _Image">Image</div>
+                </div>
+              </header>
+              <div class="st_table">
+                <tr *ngFor="let temp of foodSelectedForDinner; let i = index">
+                  <div class="st_row">
+                    <div class="st_column _rank">{{i + 1}}</div>
+                    <div class="st_column _name">{{temp.name}}</div>
+                    <div class="st_column _calories">{{temp.calories}}</div>
+                    <div class="st_column _Image"><img [src]="temp.imageUrl" alt="Food Image"
+                        style="width: 150px; height: 100px;"></div>
+                  </div>
+                </tr>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="total-calories">
+    Total Calories: <span class="calories">{{ totalCalories }}</span>
+  </div>
+
+  <div class="right-side">
+    <h3>Select an exercise:</h3>
+    <div class="dropdown">
+      <label for="exercise">Exercise:</label>
+      <select id="exercise" [(ngModel)]="selectedExercise">
+        <option *ngFor="let exercise of exercises" [value]="exercise.name">{{ exercise.name }}</option>
+      </select>
+      <button type="button" class="btn btn-success" (click)="addExercise()"
+        (click)="calculateTotalCalories()">Add</button>
+        <div class="st_viewport">
+          <div class="st_wrap_table" data-table_id="0">
+            <header class="st_table_header">
+              <h2>Exercise breakdown</h2>
+              <div class="st_row">
+                <div class="st_column _rank">Rank</div>
+                <div class="st_column _name">Name</div>
+                <div class="st_column _calories">Calories</div>
+                <div class="st_column _Image">Image</div>
+              </div>
+            </header>
+            <div class="st_table">
+              <tr *ngFor="let temp of exercisesSelected; let i = index">
+                <div class="st_row">
+                  <div class="st_column _rank">{{i + 1}}</div>
+                  <div class="st_column _name">{{temp.name}}</div>
+                  <div class="st_column _calories">{{temp.calories}}</div>
+                  <div class="st_column _Image"><img [src]="temp.imageUrl" alt="Food Image"
+                      style="width: 150px; height: 100px;"></div>
+                </div>
+              </tr>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
